@@ -1,8 +1,8 @@
 import React, { createContext, useMemo, useState } from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+import App from "/src/App";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { mainTheme } from "./styles/theme.js";
+import { mainTheme } from "/src/styles/theme.js";
 
 export const RootContext = createContext();
 
