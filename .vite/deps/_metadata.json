@@ -1,0 +1,88 @@
+{
+  "hash": "49fc8222",
+  "configHash": "12118184",
+  "lockfileHash": "04fd2e2d",
+  "browserHash": "d2d4b043",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "d87b9512",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "20c68f87",
+      "needsInterop": true
+    },
+    "@mui/material": {
+      "src": "../../node_modules/@mui/material/index.js",
+      "file": "@mui_material.js",
+      "fileHash": "917f216b",
+      "needsInterop": false
+    },
+    "@mui/icons-material/Clear": {
+      "src": "../../node_modules/@mui/icons-material/Clear.js",
+      "file": "@mui_icons-material_Clear.js",
+      "fileHash": "27619d6f",
+      "needsInterop": true
+    },
+    "prop-types": {
+      "src": "../../node_modules/prop-types/index.js",
+      "file": "prop-types.js",
+      "fileHash": "f7c6e355",
+      "needsInterop": true
+    },
+    "@mui/icons-material/LightMode": {
+      "src": "../../node_modules/@mui/icons-material/LightMode.js",
+      "file": "@mui_icons-material_LightMode.js",
+      "fileHash": "5d047b2e",
+      "needsInterop": true
+    },
+    "@mui/icons-material/ModeNight": {
+      "src": "../../node_modules/@mui/icons-material/ModeNight.js",
+      "file": "@mui_icons-material_ModeNight.js",
+      "fileHash": "d87e3079",
+      "needsInterop": true
+    },
+    "react-copy-to-clipboard": {
+      "src": "../../node_modules/react-copy-to-clipboard/lib/index.js",
+      "file": "react-copy-to-clipboard.js",
+      "fileHash": "d3b39c18",
+      "needsInterop": true
+    },
+    "@mui/icons-material/ContentCopy": {
+      "src": "../../node_modules/@mui/icons-material/ContentCopy.js",
+      "file": "@mui_icons-material_ContentCopy.js",
+      "fileHash": "bfccb69b",
+      "needsInterop": true
+    },
+    "@mui/icons-material/CheckCircleOutline": {
+      "src": "../../node_modules/@mui/icons-material/CheckCircleOutline.js",
+      "file": "@mui_icons-material_CheckCircleOutline.js",
+      "fileHash": "9f82b858",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-FBRNPY62": {
+      "file": "chunk-FBRNPY62.js"
+    },
+    "chunk-YFR6WXMX": {
+      "file": "chunk-YFR6WXMX.js"
+    },
+    "chunk-HFX52FUS": {
+      "file": "chunk-HFX52FUS.js"
+    },
+    "chunk-544NMATE": {
+      "file": "chunk-544NMATE.js"
+    },
+    "chunk-UM3JHGVO": {
+      "file": "chunk-UM3JHGVO.js"
+    },
+    "chunk-CEQRFMJQ": {
+      "file": "chunk-CEQRFMJQ.js"
+    }
+  }
+}
