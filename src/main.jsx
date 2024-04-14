@@ -19,7 +19,7 @@ const Root = () => {
 
   return (
     <React.StrictMode>
-      <BrowserRouter basename="">
+      <BrowserRouter basename="/helper">
         <RootContext.Provider value={{ theme, modeTheme, setModeTheme }}>
           <ThemeProvider theme={theme}>
             <CssBaseline enableColorScheme={true}>
