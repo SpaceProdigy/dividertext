@@ -14,8 +14,8 @@ function App() {
   const localText = JSON.parse(localStorage.getItem("text"));
   const localQuantity = JSON.parse(localStorage.getItem("quantity"));
 
-  const [text, setText] = useState(localText);
-  const [divide, setDivide] = useState(Number(localQuantity));
+  const [text, setText] = useState(localText ?? "");
+  const [divide, setDivide] = useState(Number(localQuantity ?? 0));
   const [part, setPart] = useState([]);
 
   useEffect(() => {
@@ -57,7 +57,7 @@ function App() {
           </Box>
           <QuantityInput divide={divide} setDivide={setDivide} />
           <MultilineInput text={text} setText={setText} />
-          <Fade in={text.length > 0}>
+          <Fade in={text.length > 0 && divide > 0}>
             <Box style={{ margin: 20 }}>
               <Typography variant="h5"> Parts divided text</Typography>
             </Box>

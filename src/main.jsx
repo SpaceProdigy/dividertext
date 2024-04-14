@@ -7,9 +7,14 @@ import { mainTheme } from "./styles/theme.js";
 export const RootContext = createContext();
 
 const Root = () => {
-  const [modeTheme, setModeTheme] = useState("dark");
+  const [modeTheme, setModeTheme] = useState(
+    localStorage.getItem("theme") ?? "dark"
+  );
 
-  const theme = useMemo(() => mainTheme(modeTheme), [modeTheme]);
+  const theme = useMemo(() => {
+    localStorage.setItem("theme", modeTheme);
+    return mainTheme(modeTheme);
+  }, [modeTheme]);
 
   return (
     <React.StrictMode>
