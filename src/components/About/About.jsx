@@ -34,7 +34,7 @@ export function About({ theme }) {
           >
             <Box
               sx={{
-                height: !matches400 ? 90 : "none",
+                width: "90%",
                 overflowY: "auto",
                 position: "absolute",
                 left: "50%",

@@ -24,10 +24,11 @@ export const Footer = () => {
           alignItems: "center",
         }}
       >
-        <></>
-        <Typography textAlign="center" variant="caption">
-          {quote}
-        </Typography>
+        <Box sx={{ margin: 2 }}>
+          <Typography textAlign="center" variant="caption">
+            {quote}
+          </Typography>
+        </Box>
       </Box>
     </>
   );
