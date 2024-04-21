@@ -2,14 +2,14 @@ import React, { createContext, useMemo, useState } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { mainTheme } from "./styles/theme";
 import { BrowserRouter } from "react-router-dom";
+import mainTheme from "./styles/theme";
 
 export const RootContext = createContext();
 
 const Root = () => {
   const [modeTheme, setModeTheme] = useState(
-    localStorage.getItem("theme") ?? "dark"
+    localStorage.getItem("theme") ? localStorage.getItem("theme") : "dark"
   );
 
   const theme = useMemo(() => {

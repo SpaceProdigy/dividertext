@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material";
 
-export const mainTheme = (mode) =>
+const mainTheme = (mode) =>
   createTheme({
     palette: {
       mode,
@@ -9,9 +9,11 @@ export const mainTheme = (mode) =>
       MuiCssBaseline: {
         styleOverrides: {
           body: {
-            transition: "background-color 1s ease",
+            transition: "background-color 1s ease, color 1s ease",
           },
         },
       },
     },
   });
+
+export default mainTheme;
