@@ -1,6 +1,7 @@
 import { Box, Divider, Typography } from "@mui/material";
 import { quotes } from "../../utility/quotes";
 import { useEffect, useState } from "react";
+import { M_QuoteWrapper } from "./Footer.styled";
 
 export const Footer = () => {
   const [quote, setQuote] = useState("");
@@ -24,11 +25,11 @@ export const Footer = () => {
           alignItems: "center",
         }}
       >
-        <Box sx={{ margin: 2 }}>
+        <M_QuoteWrapper>
           <Typography textAlign="center" variant="caption">
             {quote}
           </Typography>
-        </Box>
+        </M_QuoteWrapper>
       </Box>
     </>
   );

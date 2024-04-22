@@ -1,8 +1,12 @@
 import { Box, Typography, useMediaQuery } from "@mui/material";
 import { arrAboutUs } from "../../utility/arrAboutUs";
-import PropTypes from "prop-types";
+import {
+  M_Wrapper,
+  M_WrapperDescription,
+  M_WrapperTitle,
+} from "./About.styled";
 
-export function About({ theme }) {
+export function About() {
   const matches400 = useMediaQuery("(min-width:400px)");
 
   return (
@@ -12,40 +16,26 @@ export function About({ theme }) {
           marginTop: 6,
           marginBottom: 6,
           display: "flex",
-          flexDirection: "column",
           alignItems: "center",
+          flexDirection: "column",
           gap: 5,
         }}
       >
         {arrAboutUs.map(({ title, description, imageUrl }, index) => (
-          <Box
+          <M_Wrapper
             key={index}
-            sx={{
-              width: "100%",
-              position: "relative",
-              backgroundImage: `url(${imageUrl})`,
-              height: matches400 ? 400 : 300,
-              maxWidth: matches400 ? 700 : "none",
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              borderRadius: 1,
-            }}
+            initial={{ y: 70 }}
+            whileInView={{ y: 0 }}
+            transition={{ type: "spring", bounce: 0.4, duration: 0.8 }}
+            viewport={{ once: true }}
+            imageurl={imageUrl}
+            matches400={String(matches400)}
           >
-            <Box
-              sx={{
-                width: "90%",
-                overflowY: "auto",
-                position: "absolute",
-                left: "50%",
-                top: "50%",
-                transform: "translate(-50%, -50%)",
-                background:
-                  theme.palette.mode === "dark" ? "#000000bb" : "#ffffffbb",
-                padding: 1.5,
-                borderRadius: 2,
-                scrollbarWidth: "thin",
-              }}
+            <M_WrapperTitle
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true, amount: 1 }}
             >
               <Typography
                 textAlign="center"
@@ -54,31 +44,22 @@ export function About({ theme }) {
               >
                 {title}
               </Typography>
-            </Box>
-            <Box
-              sx={{
-                height: !matches400 ? 70 : "none",
-                overflowY: "auto",
-                position: "absolute",
-                bottom: 0,
-                width: "100%",
-                background:
-                  theme.palette.mode === "dark" ? "#000000bb" : "#ffffffbb",
-                padding: 1.5,
-                scrollbarWidth: "thin",
-              }}
+            </M_WrapperTitle>
+
+            <M_WrapperDescription
+              matches400={String(matches400)}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true, amount: 0.8 }}
             >
               <Typography textAlign="center" variant="subtitle2" component="p">
                 {description}
               </Typography>
-            </Box>
-          </Box>
+            </M_WrapperDescription>
+          </M_Wrapper>
         ))}
       </Box>
     </>
   );
 }
-
-About.propTypes = {
-  theme: PropTypes.object,
-};

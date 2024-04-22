@@ -15,13 +15,13 @@ import HomeIcon from "@mui/icons-material/Home";
 import TextSnippetIcon from "@mui/icons-material/TextSnippet";
 import { StyledNavLink } from "./DrawerMenu.styled";
 
-// const routeFunc = (route) => {
-//   if (route === "Home") {
-//     return "/";
-//   }
+const routeFunc = (route) => {
+  if (route === "Home") {
+    return "/";
+  }
 
-//   return `/${route.toLowerCase()}`;
-// };
+  return `/${route.toLowerCase()}`;
+};
 
 export default function DrawerMenu({ toggleDrawer, open }) {
   const DrawerList = (
@@ -29,7 +29,7 @@ export default function DrawerMenu({ toggleDrawer, open }) {
       <List>
         {["Home", "Divider"].map((text, index) => (
           <ListItem key={index} disablePadding>
-            <StyledNavLink to={"/divider"}>
+            <StyledNavLink to={routeFunc(text)}>
               <ListItemButton>
                 <ListItemIcon>
                   {text === "Home" && <HomeIcon />}
