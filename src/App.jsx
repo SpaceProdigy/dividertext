@@ -13,26 +13,33 @@ import { Footer } from "./components/Footer/Footer.jsx";
 // ROUTS
 const Home = lazy(() => import("./pages/Home/Home.jsx"));
 const Divider = lazy(() => import("./pages/Divider/Divider.jsx"));
+const NotFound = lazy(() => import("./pages/NotFound/NotFound.jsx"));
 
 function App() {
   const { theme, modeTheme, setModeTheme } = useContext(RootContext);
 
   return (
-    <>
-      <HeaderBar setModeTheme={setModeTheme} modeTheme={modeTheme} />
-
-      <Container>
-        <Suspense fallback={<Loader />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/divider" element={<Divider />} />
-          </Routes>
-          <Outlet />
-        </Suspense>
-        <ScrollToTopButton theme={theme} />
-      </Container>
-      <Footer />
-    </>
+    <div style={{ height: "100vh", display: "flex", flexDirection: "column" }}>
+      <header>
+        <HeaderBar setModeTheme={setModeTheme} modeTheme={modeTheme} />
+      </header>
+      <main style={{ flex: 1 }}>
+        <Container>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/divider" element={<Divider />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            <Outlet />
+          </Suspense>
+          <ScrollToTopButton theme={theme} />
+        </Container>
+      </main>
+      <footer style={{ flexShrink: 0 }}>
+        <Footer />
+      </footer>
+    </div>
   );
 }
 
