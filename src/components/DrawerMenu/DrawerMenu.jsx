@@ -11,6 +11,8 @@ import {
 
 import PropTypes from "prop-types";
 
+import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
+import LoginIcon from "@mui/icons-material/Login";
 import HomeIcon from "@mui/icons-material/Home";
 import TextSnippetIcon from "@mui/icons-material/TextSnippet";
 import { StyledNavLink } from "./DrawerMenu.styled";
@@ -19,8 +21,7 @@ const routeFunc = (route) => {
   if (route === "Home") {
     return "/";
   }
-
-  return `/${route.toLowerCase()}`;
+  return `/${route.replace(/\s/g, "").toLowerCase()}`;
 };
 
 export default function DrawerMenu({ toggleDrawer, open }) {
@@ -42,6 +43,21 @@ export default function DrawerMenu({ toggleDrawer, open }) {
         ))}
       </List>
       <Divider />
+      <List>
+        {["Sign up", "Sign in"].map((text, index) => (
+          <ListItem key={index} disablePadding>
+            <StyledNavLink to={routeFunc(text)}>
+              <ListItemButton>
+                <ListItemIcon>
+                  {text === "Sign up" && <AppRegistrationIcon />}
+                  {text === "Sign in" && <LoginIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </StyledNavLink>
+          </ListItem>
+        ))}
+      </List>
     </Box>
   );
 

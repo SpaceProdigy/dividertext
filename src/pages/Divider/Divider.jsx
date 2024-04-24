@@ -12,14 +12,25 @@ const Divider = () => {
   const localQuantity = JSON.parse(localStorage.getItem("quantity"));
 
   const [text, setText] = useState(localText ?? "");
-  const [divide, setDivide] = useState(Number(localQuantity ?? 0));
+  const [divide, setDivide] = useState(
+    localQuantity ? Number(localQuantity) : ""
+  );
   const [part, setPart] = useState([]);
 
   useEffect(() => {
-    const string = JSON.stringify(text);
-    const quantity = JSON.stringify(divide);
-    localStorage.setItem("text", string);
-    localStorage.setItem("quantity", quantity);
+    if (text.length > 0) {
+      const string = JSON.stringify(text);
+      localStorage.setItem("text", string);
+    } else {
+      localStorage.removeItem("text");
+    }
+
+    if (divide > 0) {
+      const quantity = JSON.stringify(divide);
+      localStorage.setItem("quantity", quantity);
+    } else {
+      localStorage.removeItem("quantity");
+    }
   }, [divide, text]);
 
   useEffect(() => {
@@ -36,6 +47,12 @@ const Divider = () => {
     dividePart();
   }, [divide, text]);
 
+  useEffect(() => {
+    if (text.length / 100 > divide && divide !== "") {
+      setDivide(Math.ceil(text.length / 100));
+    }
+  }, [divide, text.length]);
+
   return (
     <>
       <Box
@@ -50,8 +67,13 @@ const Divider = () => {
         <Box style={{ marginBottom: 20 }}>
           <Typography variant="h3">Divider text</Typography>
         </Box>
-        <QuantityInput divide={divide} setDivide={setDivide} />
-        <MultilineInput text={text} setText={setText} />
+        <QuantityInput
+          divide={divide}
+          setDivide={setDivide}
+          text={text}
+          theme={theme}
+        />
+        <MultilineInput text={text} setText={setText} theme={theme} />
         <Fade in={text.length > 0 && divide > 0}>
           <Box style={{ margin: 20 }}>
             <Typography variant="h5"> Parts divided text</Typography>
@@ -67,6 +89,7 @@ const Divider = () => {
             }}
           >
             {divide > 0 &&
+              part.length > 0 &&
               part.map((item, index) => (
                 <TextItem key={index} theme={theme} item={item} />
               ))}

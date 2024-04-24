@@ -14,6 +14,8 @@ import { Footer } from "./components/Footer/Footer.jsx";
 const Home = lazy(() => import("./pages/Home/Home.jsx"));
 const Divider = lazy(() => import("./pages/Divider/Divider.jsx"));
 const NotFound = lazy(() => import("./pages/NotFound/NotFound.jsx"));
+const SignIn = lazy(() => import("./pages/auth/SignIn/SignIn.jsx"));
+const SignUp = lazy(() => import("./pages/auth/SignUp/SignUp.jsx"));
 
 function App() {
   const { theme, modeTheme, setModeTheme } = useContext(RootContext);
@@ -29,6 +31,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/divider" element={<Divider />} />
+              <Route path="/signin" element={<SignIn />} />
+              <Route path="/signup" element={<SignUp />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
             <Outlet />
