@@ -1,9 +1,10 @@
 import { About } from "../../components/About/About";
+import { arrAboutUs } from "../../utility/arrAboutUs";
 
 const Home = () => {
   return (
     <>
-      <About />
+      <About arr={arrAboutUs} />
     </>
   );
 };

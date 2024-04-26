@@ -1,18 +1,20 @@
 import { Box, Typography, useMediaQuery } from "@mui/material";
-import { arrAboutUs } from "../../utility/arrAboutUs";
+
 import {
   M_Wrapper,
   M_WrapperDescription,
   M_WrapperTitle,
 } from "./About.styled";
+import PropTypes from "prop-types";
 
-export function About() {
+export function About({ arr }) {
   const matches400 = useMediaQuery("(min-width:400px)");
 
   return (
     <>
       <Box
         sx={{
+          width: "100%",
           marginTop: 6,
           marginBottom: 6,
           display: "flex",
@@ -21,15 +23,15 @@ export function About() {
           gap: 5,
         }}
       >
-        {arrAboutUs.map(({ title, description, imageUrl }, index) => (
+        {arr.map(({ title, description, imageUrl, id }, index) => (
           <M_Wrapper
+            id={id}
             key={index}
             initial={{ y: 70 }}
             whileInView={{ y: 0 }}
             transition={{ type: "spring", bounce: 0.4, duration: 0.8 }}
             viewport={{ once: true }}
             imageurl={imageUrl}
-            matches400={String(matches400)}
           >
             <M_WrapperTitle
               initial={{ opacity: 0 }}
@@ -63,3 +65,7 @@ export function About() {
     </>
   );
 }
+
+About.propTypes = {
+  arr: PropTypes.array,
+};
